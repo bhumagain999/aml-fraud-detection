@@ -1,0 +1,11 @@
+transaction_id,sender_id,receiver_id,amount,timestamp,transaction_type,location
+TXN0,1010,2010,500,2024-05-01 00:00:00,wire_transfer,US
+TXN1,1020,2020,12000,2024-05-01 01:00:00,crypto_transfer,CN
+TXN2,1030,2030,8500,2024-05-01 02:00:00,cash_deposit,US
+TXN3,1015,2025,30000,2024-05-01 03:00:00,wire_transfer,RU
+TXN4,1040,2045,5000,2024-05-01 04:00:00,crypto_transfer,UK
+TXN5,1010,2015,9999,2024-05-01 05:00:00,wire_transfer,CN
+TXN6,1025,2035,11000,2024-05-01 06:00:00,crypto_transfer,DE
+TXN7,1035,2040,18000,2024-05-01 07:00:00,cash_deposit,RU
+TXN8,1011,2020,100,2024-05-01 08:00:00,crypto_transfer,US
+TXN9,1005,2040,4500,2024-05-01 09:00:00,wire_transfer,UK
