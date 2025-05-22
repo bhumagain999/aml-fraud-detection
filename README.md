@@ -1,107 +1,95 @@
-# 🕵️‍♀️ AML Fraud Detection Engine
 
-This project simulates an **Anti-Money Laundering (AML)** detection system that flags suspicious transactions using **customizable rule-based logic** in Python. Designed for fraud analysts, financial investigators, and machine learning engineers interested in risk detection, financial crime prevention, or regulatory technology (RegTech).
+# 🕵️ AML Fraud Detection Engine
+
+This project simulates a real-world **Anti-Money Laundering (AML)** detection system. It flags suspicious financial transactions based on configurable rules, applies them to datasets like **Kaggle's credit card fraud dataset**, and visualizes the output via an interactive Streamlit dashboard.
 
 ---
 
-## 📂 Project Structure
+## 📦 Features
 
-```
-aml-fraud-detection/
-├── data/                     # Synthetic transaction dataset
-│   └── synthetic_transactions.csv
-├── config/                   # User-defined rules in JSON format
-│   └── rules.json
-├── scripts/                  # Python rule engine
-│   └── apply_rules.py
-├── outputs/                  # Generated output of flagged transactions
-├── README.md                 # You're reading it!
-```
+- ✅ Rule-based fraud detection using `rules.json`
+- ✅ Compatible with both synthetic and real datasets (`creditcard.csv`)
+- ✅ Modular and extensible Python scripts
+- ✅ Interactive Streamlit dashboards to explore flagged results
+- ✅ Clean GitHub structure and easy to deploy
 
 ---
 
 ## 🧠 How It Works
 
-1. **Data Simulation**: Synthetic transactions with fields like amount, country, and type.
-2. **Configurable Rules**: Define fraud flags like high-value transfers or risky geographies in a JSON file.
-3. **Rule Engine**: Python script reads the rules and applies them to the dataset.
-4. **Output**: Flags and saves suspicious transactions to `outputs/flagged_results.csv`.
+1. Load transactions from `data/creditcard.csv`
+2. Read configurable detection rules from `config/rules.json`
+3. Run `scripts/apply_rules.py` to flag suspicious activity
+4. Output results to `outputs/flagged_creditcard_results.csv`
+5. Explore results using `streamlit_app/dashboard_creditcard.py`
 
 ---
 
-## 📌 Sample Rules (`config/rules.json`)
+## 🛠 Requirements
 
-```json
-{
-  "rules": {
-    "flag_high_value": {
-      "enabled": true,
-      "column": "amount",
-      "operator": "greater_than",
-      "value": 10000
-    },
-    "flag_high_risk_country": {
-      "enabled": true,
-      "column": "location",
-      "operator": "in",
-      "value": ["CN", "RU"]
-    }
-  }
-}
-```
-
-✅ **Users can add more rules** using operators:
-- `greater_than`
-- `less_than`
-- `in`
-- `not_in`
-
----
-
-## 🛠️ To Run
-
-### Prerequisites
-- Python 3.x
-- pandas
-
-### Step-by-Step
-
-1. Clone the repo:
 ```bash
-git clone https://github.com/bhumagain999/aml-fraud-detection.git
+pip install -r requirements.txt
 ```
 
-2. Run the rule engine:
+---
+
+## 🚀 Quick Start
+
+### Apply Rules
+
 ```bash
-cd aml-fraud-detection/scripts
-python apply_rules.py
+python scripts/apply_rules.py
 ```
 
-3. View results in:
-```
-outputs/flagged_results.csv
+### Launch Streamlit Dashboard
+
+```bash
+cd streamlit_app
+streamlit run dashboard_creditcard.py
 ```
 
 ---
 
-## 📊 Sample Output
+## 📁 Folder Structure
 
-| transaction_id | amount | location | suspicious |
-|----------------|--------|----------|------------|
-| TXN1           | 12000  | CN       | ✅         |
-| TXN3           | 30000  | RU       | ✅         |
-
----
-
-## 🚀 Future Enhancements
-
-- ✅ Add Streamlit dashboard
-- 📈 Integrate real transaction datasets (with anonymization)
-- 🤖 Add unsupervised learning (e.g., Isolation Forest, Autoencoders)
-- 🧩 Blockchain integration for crypto tracing
+```
+aml-fraud-detection/
+├── data/                 # Datasets (creditcard.csv, synthetic_transactions.csv)
+├── config/               # JSON-based rule configuration
+├── scripts/              # Python rule engine
+├── outputs/              # Flagged results
+├── streamlit_app/        # Interactive dashboards
+├── requirements.txt      # Python dependencies
+└── README.md             # This file
+```
 
 ---
 
-## 📧 Contact
+## 📊 Dashboard Preview
 
-Built by [Bijaya Humagain](https://github.com/bhumagain999) — feel free to contribute or fork!
+Explore rule flag counts, transaction amounts, fraud time trends, and PCA component anomalies interactively in Streamlit.
+
+---
+
+## 📚 Credits
+
+- Dataset: [Kaggle Credit Card Fraud Detection](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
+- Libraries: `pandas`, `numpy`, `streamlit`, `matplotlib`, `seaborn`
+
+---
+
+## 💡 Ideas for Expansion
+
+- Add ML-based scoring alongside rule engine
+- Create Streamlit controls for real-time threshold tweaking
+- Build a user-friendly rule-builder UI
+
+---
+
+## 👤 Author
+
+**Bijaya Humagain**  
+[github.com/bhumagain999](https://github.com/bhumagain999)
+
+---
+
