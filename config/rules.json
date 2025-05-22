@@ -1,28 +1,22 @@
 {
-    "high_value_threshold": 10000,
-    "high_risk_countries": [
-        "CN",
-        "RU"
-    ],
-    "allowed_transaction_types": [
-        "wire_transfer",
-        "crypto_transfer"
-    ],
     "rules": {
         "flag_high_value": {
             "enabled": true,
-            "column": "amount",
+            "column": "Amount",
             "operator": "greater_than",
+            "value": 1000
+        },
+        "flag_early_time": {
+            "enabled": true,
+            "column": "Time",
+            "operator": "less_than",
             "value": 10000
         },
-        "flag_high_risk_country": {
+        "flag_negative_v1": {
             "enabled": true,
-            "column": "location",
-            "operator": "in",
-            "value": [
-                "CN",
-                "RU"
-            ]
+            "column": "V1",
+            "operator": "less_than",
+            "value": 0
         }
     }
 }
